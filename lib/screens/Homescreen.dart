@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_volume_controller/flutter_volume_controller.dart';
+import 'package:speakerclener/Utils/BlueTooth/SelectBondedDevicePage.dart';
 import 'package:speakerclener/Utils/autoclean.dart';
 import 'package:speakerclener/Utils/bluetooth.dart';
 import 'package:speakerclener/Utils/manualCleaner.dart';
@@ -11,6 +13,8 @@ import 'package:speakerclener/ads/BannerAds.dart';
 import 'package:speakerclener/ads/ClsAdMob.dart';
 import 'package:speakerclener/screens/exitScreen.dart';
 import 'package:speakerclener/screens/settingscreen.dart';
+
+// BluetoothDevice? btDevice;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,6 +27,7 @@ class _HomePageState extends State<HomePage> {
 
 
   double setVolumeValue = 0.2;
+
 
   @override
   void initState() {
@@ -265,7 +270,7 @@ class _HomePageState extends State<HomePage> {
                                         GestureDetector(
                                           onTap: (){
                                             ontap(context);
-                                            Navigator.push(context, MaterialPageRoute(builder: (_) => BlueThootScreen()));
+                                            checkBTdevice();
                                           },
                                           child: Container(
                                             height: 0.25.sh,
@@ -436,5 +441,23 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+
+  }
+  void checkBTdevice() async {
+    final BluetoothDevice? selectedDevice = await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return BlueThootScreen(checkAvailability: false);
+        },
+      ),
+    );
+
+    if (selectedDevice != null) {
+      print('Connect -> selected ' + selectedDevice.address);
+      // session.write(KeyDevice, json.encode({"1": selectedDevice.address, "2": selectedDevice.name, "3": 2}));
+      // startQuizScreen(selectedDevice);
+    } else {
+      print('Connect -> no device selected');
+    }
   }
 }
