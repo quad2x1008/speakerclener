@@ -1,0 +1,1 @@
+String AppName = "Speaker Cleaner";

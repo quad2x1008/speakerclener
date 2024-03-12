@@ -1,0 +1,42 @@
+{
+  "android": {
+    "platform": "android",
+    "package_name": "com.healthtrack.drinksmart",
+    "app_version": "1",
+    "is_ad_show": true,
+    "admob_appid": "ca-app-pub-7400206081244674~4614850391",
+    "admob_appopenid": "ca-app-pub-7400206081244674/9316354608",
+    "admob_bannerid": "ca-app-pub-7400206081244674/6881762955",
+    "admob_interid": "ca-app-pub-7400206081244674/6829792065",
+    "admob_nativeid": "ca-app-pub-7400206081244674/5101777420",
+    "admob_rewardInter": "",
+    "inter_count": "1",
+    "ad_splash": "1",
+    "ad_inter": "1",
+    "ad_appopen": "1",
+    "ad_native": "1",
+    "ad_banner": "1",
+    "ad_rewardInter": "1",
+    "privacy_url": ""
+  },
+  "ios": {
+    "platform": "ios",
+    "package_name": "com.test",
+    "app_version": "1",
+    "is_ad_show": false,
+    "admob_appid": "",
+    "admob_interid": "ca-app-pub-3940256099942544/4411468910",
+    "admob_bannerid": "ca-app-pub-3940256099942544/2934735716",
+    "admob_nativeid": "ca-app-pub-3940256099942544/2521693316",
+    "admob_appopenid": "ca-app-pub-3940256099942544/5662855259",
+    "admob_rewardInter": "ca-app-pub-3940256099942544/6978759866",
+    "inter_count": "2",
+    "ad_splash": "1",
+    "ad_inter": "1",
+    "ad_appopen": "1",
+    "ad_native": "1",
+    "ad_banner": "1",
+    "ad_rewardInter": "1",
+    "privacy_url": ""
+  }
+}
