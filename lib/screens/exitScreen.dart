@@ -90,9 +90,7 @@ class _ExitScreenState extends State<ExitScreen> {
                               shape: StadiumBorder()
                           ),
                           onPressed: (){
-                            setState(() {
-                              exit(0);
-                            });
+                            exit(0);
                           },
                           child: Text("Exit",style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.sp
