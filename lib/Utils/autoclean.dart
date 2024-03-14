@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:speakerclener/ads/BannerAds.dart';
+import 'package:speakerclener/ads/ClsAdMob.dart';
 import 'package:speakerclener/customclass/CustomDialoge.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'package:vibration/vibration.dart';
@@ -413,134 +414,137 @@ class _AutoCleanscreenState extends State<AutoCleanscreen> {
   }
 }
 
-
 class SecoundScreen extends StatelessWidget {
   const SecoundScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            height: 1.sh,
-            width: 1.sh,
-            child: SafeArea(
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: GestureDetector(
-                            onTap: (){
-                              Navigator.pop(context);
-                              Navigator.pop(context);
-                            },
-                            child: Container(
-                              height: 0.06.sh,
-                              width: 0.06.sh,
-                              margin: EdgeInsets.only(left: 20.w, top: 10.h),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/arrowback.png"),
+    return WillPopScope(
+      onWillPop: (){
+        return backButton(context);
+      },
+      child: Scaffold(
+        body: Stack(
+          children: [
+            Container(
+              height: 1.sh,
+              width: 1.sh,
+              child: SafeArea(
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: GestureDetector(
+                              onTap: (){
+                               backButton(context);
+                              },
+                              child: Container(
+                                height: 0.06.sh,
+                                width: 0.06.sh,
+                                margin: EdgeInsets.only(left: 20.w, top: 10.h),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/arrowback.png"),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 20.h, left: 10.w, right: 10.w),
-                          child: Text(
-                            "Auto Cleaning",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
+                          Container(
+                            margin: EdgeInsets.only(top: 20.h, left: 10.w, right: 10.w),
+                            child: Text(
+                              "Auto Cleaning",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Color(0xff147ADD),
+                                  fontSize: 30.sp,
+                                  fontFamily: "Montserrat"
+                              ),
+                            ),
+                          ),
+                          Container(
+                            height: 0.20.sh,
+                            width: 0.20.sh,
+                            margin: EdgeInsets.only(top: 30.h),
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage("assets/CORRECT1.png"), fit: BoxFit.fill
+                              )
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 30.h),
+                            child: Text(
+                              "Cleaning is Complate",style: TextStyle(
                                 color: Color(0xff147ADD),
-                                fontSize: 30.sp,
-                                fontFamily: "Montserrat"
+                                fontSize: 21.sp,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Poppins"
+                              ),
                             ),
                           ),
-                        ),
-                        Container(
-                          height: 0.20.sh,
-                          width: 0.20.sh,
-                          margin: EdgeInsets.only(top: 30.h),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/CORRECT1.png"), fit: BoxFit.fill
-                            )
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 30.h),
-                          child: Text(
-                            "Cleaning is Complate",style: TextStyle(
-                              color: Color(0xff147ADD),
-                              fontSize: 21.sp,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "Poppins"
+                          Container(
+                            margin: EdgeInsets.only(top: 10.h),
+                            child: Text(
+                              "Is the sound still not working properly? \n Tap the restart button.",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Color(0xff147ADD),
+                                fontSize: 15.sp,
+                                fontFamily: "Poppinsreg"
+                              ),
                             ),
                           ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 10.h),
-                          child: Text(
-                            "Is the sound still not working properly? \n Tap the restart button.",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Color(0xff147ADD),
-                              fontSize: 15.sp,
-                              fontFamily: "Poppinsreg"
-                            ),
-                          ),
-                        ),
-                        Container(
-                          height: 40.h,
-                          width: 0.85.sw,
-                          margin: EdgeInsets.only(top: 30.h),
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                shape: StadiumBorder()
-                            ),
-                            onPressed: () {
-                              Navigator.pop(context); // Pop the current screen (SecoundScreen)
-                              Navigator.pop(context); // Pop the previous screen (AutoCleanscreen)
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => AutoCleanscreen())); // Navigate back to AutoCleanscreen
-                            },
+                          Container(
+                            height: 40.h,
+                            width: 0.85.sw,
+                            margin: EdgeInsets.only(top: 30.h),
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  shape: StadiumBorder()
+                              ),
+                              onPressed: () {
+                                Navigator.pop(context); // Pop the current screen (SecoundScreen)
+                                Navigator.pop(context); // Pop the previous screen (AutoCleanscreen)
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => AutoCleanscreen())); // Navigate back to AutoCleanscreen
+                              },
 
-                            child: Text("Restart",style: TextStyle(
-                                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.sp
-                            ),
+                              child: Text("Restart",style: TextStyle(
+                                  color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.sp
+                              ),
+                              ),
                             ),
                           ),
-                        ),
-                        Container(
-                          height: 40.h,
-                          width: 0.85.sw,
-                          margin: EdgeInsets.only(top: 20.h),
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                shape: StadiumBorder()
+                          Container(
+                            height: 40.h,
+                            width: 0.85.sw,
+                            margin: EdgeInsets.only(top: 20.h),
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  shape: StadiumBorder()
+                              ),
+                              onPressed: (){
+                                Navigator.pop(context);
+                                Navigator.pop(context);
+                              },
+                              child: Text("Done",style: TextStyle(
+                                  color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.sp
+                              ),),
                             ),
-                            onPressed: (){
-                              Navigator.pop(context);
-                              Navigator.pop(context);
-                            },
-                            child: Text("Done",style: TextStyle(
-                                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.sp
-                            ),),
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  BannerAds()
-                ],
+                    BannerAds()
+                  ],
+                ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

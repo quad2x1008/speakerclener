@@ -37,7 +37,6 @@ class _SplashScreen1State extends State<SplashScreen1> {
     }
   }
 
-
   Future<void> initPlugin() async {
     try {
       final TrackingStatus status = await AppTrackingTransparency.trackingAuthorizationStatus;

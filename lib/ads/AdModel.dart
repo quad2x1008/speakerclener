@@ -92,39 +92,3 @@ class AdModel {
   }
 }
 
-Future<void> loadHttpJson() async {
-  // try {
-  //   http.Response response = await http.get(Uri.parse(adJosoURL));
-  //   int statusCode = response.statusCode;
-  //   if (statusCode == 200) {
-  //     Map<String, String> headers = response.headers;
-  //     Map jsonMap = json.decode(response.body);
-  //     if (Platform.isAndroid) {
-  //       myAdModel = AdModel.fromJson(jsonMap['android']);
-  //     } else {
-  //       myAdModel = AdModel.fromJson(jsonMap['ios']);
-  //     }
-  //   }
-  // } catch (e) {
-  //   print(e);
-  // }
-  try {
-    if (myAdModel.packageName == null) {
-      String data = await rootBundle.loadString("assets/ads.json");
-      final jsonMap = jsonDecode(data);
-      if (Platform.isAndroid) {
-        myAdModel = AdModel.fromJson(jsonMap['android']);
-      } else {
-        myAdModel = AdModel.fromJson(jsonMap['ios']);
-      }
-    }
-
-    AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
-    var _appLifecycleReactor = AppLifecycleReactor(appOpenAdManager: appOpenAdManager);
-    _appLifecycleReactor.listenToAppStateChanges();
-    ClsAdMob.initAd();
-  } catch (e) {
-    print(e);
-  }
-  return;
-}

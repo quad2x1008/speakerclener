@@ -116,15 +116,3 @@ Future<bool> backButton(BuildContext context) {
 }
 
 
-Future<bool> ontap(BuildContext context)
-{
-  print("Test== Beck Press");
-  ClsAdMob.showFullAds(callBack:()
-  {
-    print("Test== Dismiss");
-    // Navigator.pop(context);
-    // ClsSound.playSound(SOUNDTYPE.Tap);
-  });
-  return Future.value(false);
-}
-

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:speakerclener/ads/BannerAds.dart';
+import 'package:speakerclener/ads/ClsAdMob.dart';
 
 class SoundScreen extends StatefulWidget {
   const SoundScreen({Key? key});
@@ -65,80 +66,85 @@ class _SoundScreenState extends State<SoundScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            height: 1.sh,
-            width: 1.sh,
-            child: SafeArea(
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: GestureDetector(
-                            onTap: (){
-                              Navigator.pop(context);
-                            },
-                            child: Container(
-                              height: 0.06.sh,
-                              width: 0.06.sh,
-                              margin: EdgeInsets.only(left: 20.w, top: 10.h),
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/arrowback.png"),
+    return WillPopScope(
+      onWillPop:(){
+        return backButton(context);
+      },
+      child: Scaffold(
+        body: Stack(
+          children: [
+            Container(
+              height: 1.sh,
+              width: 1.sh,
+              child: SafeArea(
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: GestureDetector(
+                              onTap: (){
+                                backButton(context);
+                              },
+                              child: Container(
+                                height: 0.06.sh,
+                                width: 0.06.sh,
+                                margin: EdgeInsets.only(left: 20.w, top: 10.h),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/arrowback.png"),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
 
-                        Container(
-                          margin: EdgeInsets.only(top: 20.h, left: 10.w, right: 10.w),
-                          child: Text(
-                              "Sound Cleaning",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Color(0xff147ADD),
-                                fontSize: 30.sp,
-                                fontFamily: "Montserrat"
+                          Container(
+                            margin: EdgeInsets.only(top: 20.h, left: 10.w, right: 10.w),
+                            child: Text(
+                                "Sound Cleaning",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Color(0xff147ADD),
+                                  fontSize: 30.sp,
+                                  fontFamily: "Montserrat"
+                              ),
                             ),
                           ),
-                        ),
 
-                        Expanded(
-                          child: Padding(
-                            padding:  EdgeInsets.only(top: 10.h, left: 30.w, right: 30.w),
-                            child: ListView.builder(
-                              itemCount: audioList.length,
-                              itemBuilder: (context, index) {
-                                return ListTile(
-                                  title: Text('Audio ${index + 1}', style: TextStyle(
-                                    color: Color(0xff147ADD),
-                                    fontSize: 18.sp,
-                                    fontFamily: "Poppinsreg"
-                                  ),),
-                                  trailing: IconButton(
-                                    icon: Icon(_getIcon(index), size: 25.sp,  color: Color(0xff147ADD), ),
-                                    onPressed: () => _playAudio(index),
-                                  ),
-                                );
-                              },
+                          Expanded(
+                            child: Padding(
+                              padding:  EdgeInsets.only(top: 10.h, left: 30.w, right: 30.w),
+                              child: ListView.builder(
+                                itemCount: audioList.length,
+                                itemBuilder: (context, index) {
+                                  return ListTile(
+                                    title: Text('Audio ${index + 1}', style: TextStyle(
+                                      color: Color(0xff147ADD),
+                                      fontSize: 18.sp,
+                                      fontFamily: "Poppinsreg"
+                                    ),),
+                                    trailing: IconButton(
+                                      icon: Icon(_getIcon(index), size: 25.sp,  color: Color(0xff147ADD), ),
+                                      onPressed: () => _playAudio(index),
+                                    ),
+                                  );
+                                },
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  BannerAds()
-                ],
+                    BannerAds()
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
