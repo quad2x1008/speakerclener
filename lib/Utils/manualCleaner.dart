@@ -6,9 +6,9 @@ import 'package:sound_generator/waveTypes.dart';
 import 'package:speakerclener/ads/BannerAds.dart';
 
 
-class MyApp extends StatefulWidget {
+class Manualcleaner extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _ManualcleanerState createState() => _ManualcleanerState();
 }
 
 class MyPainter extends CustomPainter {
@@ -46,7 +46,7 @@ class MyPainter extends CustomPainter {
   }
 }
 
-class _MyAppState extends State<MyApp> {
+class _ManualcleanerState extends State<Manualcleaner> {
   bool isPlaying = false;
   double frequency = 20;
   double balance = 0;

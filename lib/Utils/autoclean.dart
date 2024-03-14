@@ -298,7 +298,7 @@ class _AutoCleanscreenState extends State<AutoCleanscreen> {
           children: [
             Container(
               height: 1.sh,
-              width: 1.sh,
+              width: 1.sw,
               child: SafeArea(
                 child: Column(
                   children: [
@@ -428,7 +428,7 @@ class SecoundScreen extends StatelessWidget {
           children: [
             Container(
               height: 1.sh,
-              width: 1.sh,
+              width: 1.sw,
               child: SafeArea(
                 child: Column(
                   children: [

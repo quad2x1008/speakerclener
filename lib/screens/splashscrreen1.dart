@@ -163,7 +163,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
         children: [
           SizedBox(
             height: 1.sh,
-            width: 1.sh,
+            width: 1.sw,
             child:  SafeArea(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

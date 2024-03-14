@@ -44,7 +44,7 @@ class _SettingscreenState extends State<Settingscreen> {
         children: [
           Container(
             height: 1.sh,
-            width: 1.sh,
+            width: 1.sw,
             child: SafeArea(
               child: Column(
                children: [

@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             SizedBox(
               height: 1.sh,
-              width: 1.sh,
+              width: 1.sw,
               child: SafeArea(
                 child: Column(
                   children: [
@@ -224,7 +224,7 @@ class _HomePageState extends State<HomePage> {
 
                                         GestureDetector(
                                           onTap: (){
-                                            Navigator.push(context, MaterialPageRoute(builder: (_) => MyApp()));
+                                            Navigator.push(context, MaterialPageRoute(builder: (_) => Manualcleaner()));
                                           },
                                           child: Container(
                                             height: 0.25.sh,

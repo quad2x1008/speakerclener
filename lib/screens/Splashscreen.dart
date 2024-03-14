@@ -65,7 +65,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
         children: [
           Container(
             height: 1.sh,
-            width: 1.sh,
+            width: 1.sw,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/Splshscreen.png"),
@@ -178,7 +178,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
         children: [
           Container(
             height: 1.sh,
-            width: 1.sh,
+            width: 1.sw,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/Splshscreen.png"),

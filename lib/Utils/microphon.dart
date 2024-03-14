@@ -22,7 +22,7 @@ class _MicTestingState extends State<MicTesting> {
         children: [
           Container(
             height: 1.sh,
-            width: 1.sh,
+            width: 1.sw,
             child: SafeArea(
               child: Column(
                 children: [
@@ -182,7 +182,7 @@ class _NoiseMeterAppState extends State<NoiseMeterApp> {
           children: [
             Container(
               height: 1.sh,
-              width: 1.sh,
+              width: 1.sw,
               child: SafeArea(
                 child: Column(
                   children: [

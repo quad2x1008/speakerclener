@@ -75,7 +75,7 @@ class _SoundScreenState extends State<SoundScreen> {
           children: [
             Container(
               height: 1.sh,
-              width: 1.sh,
+              width: 1.sw,
               child: SafeArea(
                 child: Column(
                   children: [
