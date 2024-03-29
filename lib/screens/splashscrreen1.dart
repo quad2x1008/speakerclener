@@ -97,7 +97,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
   Future<void> loadAdsId() async {
     FirebaseLog.logEvent("APPSTART");
     List<Future> futureList = [];
-    futureList.add(loadHttpJson());
+    // futureList.add(loadHttpJson());
     futureList.add(Future.delayed(Duration(seconds: 3)));
 
     await Future.wait<dynamic>(futureList);

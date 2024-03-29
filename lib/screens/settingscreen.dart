@@ -80,8 +80,8 @@ class _SettingscreenState extends State<Settingscreen> {
                    ),
                  ),
                  Container(
-                   height: 0.30.sh,
-                   width: 0.60.sh,
+                   height: 200.sp,
+                   width: 300.sp,
                    margin: EdgeInsets.only(right: 20.w, left: 20.w, top: 30.h),
                    decoration: BoxDecoration(
                      color: Colors.grey.withOpacity(0.5),
@@ -104,7 +104,7 @@ class _SettingscreenState extends State<Settingscreen> {
                                    padding: EdgeInsets.only( left: 35.w),
                                    child: Text(
                                      "More Apps",
-                                     style: TextStyle(fontSize: 24.sp, letterSpacing: 2,  color: Color(0xff147ADD)),
+                                     style: TextStyle(fontSize: 20.sp, letterSpacing: 2,  color: Color(0xff147ADD)),
                                    ),
                                    alignment: Alignment.topLeft,
                                  ),
@@ -112,7 +112,7 @@ class _SettingscreenState extends State<Settingscreen> {
 
                                Container(
                                  padding: EdgeInsets.only( right: 50.w),
-                                 child: Icon(Icons.more_horiz_outlined, color: Color(0xff147ADD),),
+                                 child: Icon(Icons.more_horiz_outlined, color: Color(0xff147ADD),size: 30.sp,),
                                  alignment: Alignment.topLeft,
                                ),
                              ],
@@ -133,7 +133,7 @@ class _SettingscreenState extends State<Settingscreen> {
                                    padding: EdgeInsets.only( left: 35.w),
                                    child: Text(
                                      "Share App",
-                                     style: TextStyle(fontSize: 24.sp, letterSpacing: 2,  color: Color(0xff147ADD)),
+                                     style: TextStyle(fontSize: 20.sp, letterSpacing: 2,  color: Color(0xff147ADD)),
                                    ),
                                    alignment: Alignment.topLeft,
                                  ),
@@ -141,7 +141,7 @@ class _SettingscreenState extends State<Settingscreen> {
 
                                Container(
                                  padding: EdgeInsets.only( right: 50.w),
-                                 child: Icon(Icons.share, color: Color(0xff147ADD)),
+                                 child: Icon(Icons.share, color: Color(0xff147ADD),size: 25.sp,),
                                  alignment: Alignment.topLeft,
                                ),
                              ],
@@ -164,7 +164,7 @@ class _SettingscreenState extends State<Settingscreen> {
                                    padding: EdgeInsets.only( left: 35.w),
                                    child: Text(
                                      "Privacy Policy",
-                                     style: TextStyle(fontSize: 24.sp, letterSpacing: 2,  color: Color(0xff147ADD)),
+                                     style: TextStyle(fontSize: 20.sp, letterSpacing: 2,  color: Color(0xff147ADD)),
                                    ),
                                    alignment: Alignment.topLeft,
                                  ),
@@ -172,7 +172,7 @@ class _SettingscreenState extends State<Settingscreen> {
 
                                Container(
                                  padding: EdgeInsets.only( right: 50.w),
-                                 child: Icon(Icons.privacy_tip,  color: Color(0xff147ADD)),
+                                 child: Icon(Icons.privacy_tip,  color: Color(0xff147ADD),size: 25.sp,),
                                  alignment: Alignment.topLeft,
                                ),
                              ],

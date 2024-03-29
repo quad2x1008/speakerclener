@@ -99,7 +99,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
                       "Welcome to Speaker \n Cleaner!",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 30.sp,
+                          fontSize: 20.sp,
                           color: Colors.white,
                           fontFamily: "Poppins"
                       ),
@@ -111,7 +111,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
                       "Revive your headphones, amplify \n your speakers, and test your \n microphone with ease.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 18.sp,
+                          fontSize: 15.sp,
                           color: Colors.white.withOpacity(0.8),
                           fontFamily: "Poppinsreg",
                       ),
@@ -213,7 +213,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                       "Crystal-Clear Audio",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 30.sp,
+                          fontSize: 20.sp,
                           color: Colors.white,
                           fontFamily: "Poppins"
                       ),
@@ -252,7 +252,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                               child: Text(
                                 "Next",
                                 style: TextStyle(
-                                    fontSize: 25.sp, color: Color(0xff0B78DE),
+                                    fontSize: 20.sp, color: Color(0xff0B78DE),
                                     fontFamily: "Poppinsreg"
                                 ),
                               ),
