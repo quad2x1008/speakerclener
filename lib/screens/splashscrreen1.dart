@@ -55,6 +55,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
     }
   }
 
+
   void concentForm() async {
     // await ConsentInformation.instance.reset();
     // print("Date==${DateTime.now().compareTo(DateTime(2023, 6, 15).add(Duration(days: 5)))}");
@@ -192,4 +193,5 @@ class _SplashScreen1State extends State<SplashScreen1> {
       ),
     );
   }
+
 }

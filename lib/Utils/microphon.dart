@@ -96,7 +96,7 @@ class _MicTestingState extends State<MicTesting> {
                             child: Text(
                               "Tap to Test",
                               style: TextStyle(
-                                color: Colors.white,
+                                color: Color(0xff147ADD),
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20.sp,
                               ),
