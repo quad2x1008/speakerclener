@@ -5,6 +5,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:speakerclener/ads/BannerAds.dart';
 import 'package:speakerclener/ads/ClsAdMob.dart';
 import 'package:speakerclener/customclass/CustomDialoge.dart';
+import 'package:speakerclener/customclass/color.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'package:vibration/vibration.dart';
 
@@ -186,6 +187,7 @@ class _AutoCleanscreenState extends State<AutoCleanscreen> {
                         margin: EdgeInsets.only(top: 25.h),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                              backgroundColor: themeColor,
                               shape: StadiumBorder()
                           ),
                           onPressed: (){
@@ -262,6 +264,7 @@ class _AutoCleanscreenState extends State<AutoCleanscreen> {
                         margin: EdgeInsets.only(top: 25.h),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                              backgroundColor: themeColor,
                               shape: StadiumBorder()
                           ),
                           onPressed: (){
@@ -389,6 +392,7 @@ class _AutoCleanscreenState extends State<AutoCleanscreen> {
                             margin: EdgeInsets.only(top: 30.h),
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
+                                  backgroundColor: themeColor,
                                   shape: StadiumBorder()
                               ),
                               onPressed: (){
@@ -504,6 +508,7 @@ class SecoundScreen extends StatelessWidget {
                             margin: EdgeInsets.only(top: 30.h),
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
+                                  backgroundColor: themeColor,
                                   shape: StadiumBorder()
                               ),
                               onPressed: () {
@@ -524,6 +529,7 @@ class SecoundScreen extends StatelessWidget {
                             margin: EdgeInsets.only(top: 20.h),
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
+                                  backgroundColor: themeColor,
                                   shape: StadiumBorder()
                               ),
                               onPressed: (){

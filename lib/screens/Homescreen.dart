@@ -10,6 +10,7 @@ import 'package:speakerclener/Utils/sixscreen.dart';
 import 'package:speakerclener/Utils/soundtest.dart';
 import 'package:speakerclener/ads/BannerAds.dart';
 import 'package:speakerclener/ads/ClsAdMob.dart';
+import 'package:speakerclener/customclass/color.dart';
 import 'package:speakerclener/screens/exitScreen.dart';
 import 'package:speakerclener/screens/settingscreen.dart';
 
@@ -94,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                                       child: Text("Speaker Cleaner", style: TextStyle(
                                         fontFamily: "Montserrat",
                                         fontSize: 25.sp,
-                                        color: const Color(0xff0B78DE)
+                                        color: themeColor
                                       ),),
                                     ),
                                     GestureDetector(
@@ -103,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                                       },
                                       child: Container(
                                         margin: EdgeInsets.only(top: 10.h, right: 10.h),
-                                        child: Image.asset("assets/setting.png",color: Color(0xff0B78DE), height: 22.h, width: 22.w,)
+                                        child: Image.asset("assets/setting.png",color: themeColor, height: 22.h, width: 22.w,)
                                       ),
                                     ),
                                   ],

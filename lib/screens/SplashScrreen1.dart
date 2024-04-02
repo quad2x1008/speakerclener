@@ -15,7 +15,7 @@ import 'package:speakerclener/ads/FirebaseLog.dart';
 import 'package:speakerclener/customclass/key.dart';
 import 'package:speakerclener/main.dart';
 import 'package:speakerclener/screens/Homescreen.dart';
-import 'package:speakerclener/screens/Splashscreen.dart';
+import 'package:speakerclener/screens/GetStartScreen.dart';
 import 'package:http/http.dart' as http;
 
 class SplashScreen1 extends StatefulWidget {
@@ -26,7 +26,6 @@ class SplashScreen1 extends StatefulWidget {
 }
 
 class _SplashScreen1State extends State<SplashScreen1> {
-
   @override
   void initState() {
     super.initState();
@@ -55,7 +54,6 @@ class _SplashScreen1State extends State<SplashScreen1> {
     }
   }
 
-
   void concentForm() async {
     // await ConsentInformation.instance.reset();
     // print("Date==${DateTime.now().compareTo(DateTime(2023, 6, 15).add(Duration(days: 5)))}");
@@ -69,21 +67,22 @@ class _SplashScreen1State extends State<SplashScreen1> {
     ConsentRequestParameters params = ConsentRequestParameters(consentDebugSettings: debugSettings);
 
     ConsentInformation.instance.requestConsentInfoUpdate(params, () {
-      ConsentForm.loadConsentForm((ConsentForm consentForm) async {
-        var status = await ConsentInformation.instance.getConsentStatus();
-        print("Test==${status}");
-        if (status == ConsentStatus.required) {
-          consentForm.show(
-                (FormError? formError) {
-              // Handle dismissal by reloading form
-              loadAdsId();
-            },
-          );
-        } else {
-          loadAdsId();
-        }
-      },
-            (formError) {
+      ConsentForm.loadConsentForm(
+        (ConsentForm consentForm) async {
+          var status = await ConsentInformation.instance.getConsentStatus();
+          print("Test==${status}");
+          if (status == ConsentStatus.required) {
+            consentForm.show(
+              (FormError? formError) {
+                // Handle dismissal by reloading form
+                loadAdsId();
+              },
+            );
+          } else {
+            loadAdsId();
+          }
+        },
+        (formError) {
           loadAdsId();
           // Handle the error
         },
@@ -97,25 +96,45 @@ class _SplashScreen1State extends State<SplashScreen1> {
   Future<void> loadAdsId() async {
     FirebaseLog.logEvent("APPSTART");
     List<Future> futureList = [];
-    // futureList.add(loadHttpJson());
+    futureList.add(loadHttpJson());
     futureList.add(Future.delayed(Duration(seconds: 3)));
 
     await Future.wait<dynamic>(futureList);
 
-    if (myAdModel.adSplash == '1') {
-      if (DateTime.now().compareTo(DateTime.parse('2023-06-01').add(Duration(days: 5))) > 0) {
-        AppOpenAdManager()
-          ..showAdIfAvailable(callBack: () {});
-      }
+    if (myAdModel.adSplash == '1' && DateTime.now().compareTo(DateTime(2023, 10, 05).add(Duration(days: 5))) > 0) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return session.read(KEY.firstScreen) ?? true ? GetStartScreen() : HomePage();
+          },
+        ),
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return session.read(KEY.firstScreen) ?? true ? GetStartScreen() : HomePage();
+          },
+        ),
+      );
     }
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) {
-          return session.read(KEY.firstScreen) ?? true ? SplashScreen() : HomePage();
-        },
-      ),
-    );
+
+    // if (myAdModel.adSplash == '1') {
+    //     if (DateTime.now().compareTo(DateTime.parse('2023-06-01').add(Duration(days: 5))) > 0) {
+    //       AppOpenAdManager()
+    //         ..showAdIfAvailable(callBack: () {});
+    //     }
+    //   }
+    //   Navigator.pushReplacement(
+    //     context,
+    //     MaterialPageRoute(
+    //       builder: (context) {
+    //         return session.read(KEY.firstScreen) ?? true ? GetStartScreen() : HomePage();
+    //       },
+    //     ),
+    //   );
   }
 
   String adJosoURL = "http://s1.bninfotech.co.in/AdsJson/${packageInfo?.packageName}.json";
@@ -146,8 +165,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
           myAdModel = AdModel.fromJson(jsonMap['ios']);
         }
       }
-      AppOpenAdManager appOpenAdManager = AppOpenAdManager()
-        ..loadAd();
+      AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
       var _appLifecycleReactor = AppLifecycleReactor(appOpenAdManager: appOpenAdManager);
       _appLifecycleReactor.listenToAppStateChanges();
       ClsAdMob.initAd();
@@ -165,24 +183,23 @@ class _SplashScreen1State extends State<SplashScreen1> {
           SizedBox(
             height: 1.sh,
             width: 1.sw,
-            child:  SafeArea(
+            child: SafeArea(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 //crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
                     margin: EdgeInsets.only(bottom: 50.h),
-                    child: Image.asset("assets/applogo.png", height: 0.30.sh, width: 0.30.sh
-                      ,),
+                    child: Image.asset(
+                      "assets/applogo.png",
+                      height: 0.30.sh,
+                      width: 0.30.sh,
+                    ),
                   ),
                   Container(
                     child: Text(
                       "Speaker Cleaner",
-                      style: TextStyle(
-                        fontSize: 25.sp,
-                        color: const Color(0xff147ADD),
-                        fontFamily: "Poppins"
-                      ),
+                      style: TextStyle(fontSize: 25.sp, color: const Color(0xff147ADD), fontFamily: "Poppins"),
                     ),
                   ),
                 ],
@@ -193,5 +210,4 @@ class _SplashScreen1State extends State<SplashScreen1> {
       ),
     );
   }
-
 }

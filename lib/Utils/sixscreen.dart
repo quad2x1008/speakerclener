@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:speakerclener/Utils/autoclean.dart';
 import 'package:speakerclener/ads/BannerAds.dart';
 import 'package:speakerclener/ads/ClsAdMob.dart';
+import 'package:speakerclener/customclass/color.dart';
 
 class HowCleanscreen extends StatefulWidget {
   const HowCleanscreen({super.key});
@@ -133,7 +134,8 @@ class _HowCleanscreenState extends State<HowCleanscreen> {
                             margin: EdgeInsets.only(top: 30.h),
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                shape: StadiumBorder()
+                                  backgroundColor: themeColor,
+                                  shape: StadiumBorder()
                               ),
                               onPressed: (){
                                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => AutoCleanscreen()));

@@ -9,6 +9,7 @@ import 'package:speakerclener/Utils/autoclean.dart';
 import 'package:speakerclener/ads/BannerAds.dart';
 import 'package:speakerclener/ads/ClsAdMob.dart';
 import 'package:speakerclener/customclass/CustomDialoge.dart';
+import 'package:speakerclener/customclass/color.dart';
 import 'package:speakerclener/screens/Homescreen.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
@@ -402,7 +403,9 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                               margin: EdgeInsets.only(top: 25.h),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                    shape: StadiumBorder()),
+                                    backgroundColor: themeColor,
+                                    shape: StadiumBorder()
+                                ),
                                 onPressed: () {
                                   setState(() {
                                     stopAudio();
@@ -484,7 +487,9 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                             margin: EdgeInsets.only(top: 25.h),
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  shape: StadiumBorder()),
+                                  backgroundColor: themeColor,
+                                  shape: StadiumBorder()
+                              ),
                               onPressed: () {
                                 setState(() {
                                   Navigator.of(context).pop();
@@ -607,7 +612,9 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                             margin: EdgeInsets.only(top: 30.h),
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  shape: StadiumBorder()),
+                                  backgroundColor: themeColor,
+                                  shape: StadiumBorder()
+                              ),
                               onPressed: () {
                                 showStopDailoge();
                               },
@@ -720,7 +727,9 @@ class SecoundScreen extends StatelessWidget {
                           margin: EdgeInsets.only(top: 30.h),
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                shape: StadiumBorder()),
+                                backgroundColor: themeColor,
+                                shape: StadiumBorder()
+                            ),
                             onPressed: () {
                               Navigator.pop(
                                   context); // Pop the current screen (SecoundScreen)
@@ -747,7 +756,9 @@ class SecoundScreen extends StatelessWidget {
                           margin: EdgeInsets.only(top: 20.h),
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                shape: StadiumBorder()),
+                                backgroundColor: themeColor,
+                                shape: StadiumBorder()
+                            ),
                             onPressed: () {
                               Navigator.pop(context);
                               Navigator.pop(context);

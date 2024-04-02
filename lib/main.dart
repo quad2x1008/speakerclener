@@ -5,7 +5,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:speakerclener/ads/ClsAdMob.dart';
-import 'package:speakerclener/screens/splashscrreen1.dart';
+import 'package:speakerclener/screens/SplashScrreen1.dart';
 
 final session = GetStorage("session");
 PackageInfo? packageInfo;
@@ -17,12 +17,7 @@ Future<void> main() async {
   MobileAds.instance.initialize();
   MobileAds.instance.updateRequestConfiguration(RequestConfiguration(testDeviceIds: deviceList));
 
-  SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-          statusBarIconBrightness: Brightness.dark,
-          statusBarBrightness: Brightness.dark,
-          statusBarColor: Colors.transparent
-      ));
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark, statusBarBrightness: Brightness.dark, statusBarColor: Colors.transparent));
 
   runApp(const MyApp());
 }
@@ -33,16 +28,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (_, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: child,
-        );
-      },
-      child: const SplashScreen1()
-    );
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (_, child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: child,
+            color: Colors.blueAccent,
+            theme: ThemeData(
+                // primaryColor: Colors.blueAccent,
+              primarySwatch: Colors.blue
+
+            ),
+          );
+        },
+        child: const SplashScreen1());
   }
 }

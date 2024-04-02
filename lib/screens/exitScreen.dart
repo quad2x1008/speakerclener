@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:speakerclener/customclass/color.dart';
 
 class ExitScreen extends StatefulWidget {
   const ExitScreen({super.key});
@@ -87,6 +88,7 @@ class _ExitScreenState extends State<ExitScreen> {
                         margin: EdgeInsets.only(top: 25.h),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                              backgroundColor: themeColor,
                               shape: StadiumBorder()
                           ),
                           onPressed: (){

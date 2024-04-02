@@ -94,7 +94,7 @@ class _SettingscreenState extends State<Settingscreen> {
                          padding: EdgeInsets.only(top: 30.h, left: 10.w),
                          child: GestureDetector(
                            onTap: (){
-                             launch(Platform.isIOS ? appStoreMoreApp : playStoreMoreApp);
+                             launchUrl(Uri.parse(Platform.isIOS ? appStoreMoreApp : playStoreMoreApp));
                            },
                            child: Row(
                              mainAxisAlignment: MainAxisAlignment.spaceBetween,

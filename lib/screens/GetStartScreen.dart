@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:speakerclener/customclass/color.dart';
 import 'package:speakerclener/customclass/key.dart';
 import 'package:speakerclener/main.dart';
 import 'package:speakerclener/screens/Homescreen.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+class GetStartScreen extends StatefulWidget {
+  const GetStartScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<GetStartScreen> createState() => _GetStartScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _GetStartScreenState extends State<GetStartScreen> {
   PageController _pageController = PageController();
 
   @override
@@ -126,7 +127,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(25.5.sp),
-                          border: Border.all(color: Color(0xff0B78DE), width: 3.sp),
+                          border: Border.all(color: themeColor, width: 3.sp),
                       ),
                       child: Center(
                         child: Row(
@@ -137,14 +138,14 @@ class _SplashScreen1State extends State<SplashScreen1> {
                               child: Text(
                                 "Next",
                                 style: TextStyle(
-                                    fontSize: 20.sp, color: Color(0xff0B78DE), fontFamily: "Poppinsreg"),
+                                    fontSize: 20.sp, color: themeColor, fontFamily: "Poppinsreg"),
                               ),
                             ),
                             Container(
                               margin: EdgeInsets.only(left: 5.w),
                               child: Image.asset(
                                 "assets/aarow.png",
-                                color: Color(0xff0B78DE),
+                                color: themeColor,
                                 height: 21.h,
                                 width: 20.w,
                               ),
@@ -242,7 +243,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(25.5.sp),
-                          border: Border.all(color: Color(0xff0B78DE), width: 3.sp)),
+                          border: Border.all(color: themeColor, width: 3.sp)),
                       child: Center(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -252,7 +253,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                               child: Text(
                                 "Next",
                                 style: TextStyle(
-                                    fontSize: 20.sp, color: Color(0xff0B78DE),
+                                    fontSize: 20.sp, color: themeColor,
                                     fontFamily: "Poppinsreg"
                                 ),
                               ),
@@ -261,7 +262,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                               margin: EdgeInsets.only(left: 10.w),
                               child: Image.asset(
                                 "assets/aarow.png",
-                                color: Color(0xff0B78DE),
+                                color: themeColor,
                                 height: 20.h,
                                 width: 21.w,
                               ),

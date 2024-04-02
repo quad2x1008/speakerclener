@@ -6,6 +6,7 @@ import 'package:noise_meter/noise_meter.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:speakerclener/ads/BannerAds.dart';
 import 'package:speakerclener/ads/ClsAdMob.dart';
+import 'package:speakerclener/customclass/color.dart';
 
 class MicTesting extends StatefulWidget {
   const MicTesting({super.key});
@@ -88,7 +89,8 @@ class _MicTestingState extends State<MicTesting> {
                           margin: EdgeInsets.only(top: 30.h),
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              shape: StadiumBorder(),
+                                backgroundColor: themeColor,
+                                shape: StadiumBorder()
                             ),
                             onPressed: () async {
                               await Navigator.push(context, MaterialPageRoute(builder: (_) => NoiseMeterApp()));
@@ -96,7 +98,7 @@ class _MicTestingState extends State<MicTesting> {
                             child: Text(
                               "Tap to Test",
                               style: TextStyle(
-                                color: Color(0xff147ADD),
+                                color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20.sp,
                               ),
@@ -316,6 +318,7 @@ class _NoiseMeterAppState extends State<NoiseMeterApp> {
                             margin: EdgeInsets.only(top: 30.h),
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
+                                  backgroundColor: themeColor,
                                   shape: StadiumBorder()
                               ),
                               onPressed: (){
