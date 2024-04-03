@@ -1,33 +1,28 @@
 import 'dart:async';
+
 import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:headset_connection_event/headset_event.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:speakerclener/Utils/BlueTooth/BluetoothDeviceListEntry.dart';
 import 'package:speakerclener/Utils/autoclean.dart';
 import 'package:speakerclener/ads/BannerAds.dart';
 import 'package:speakerclener/ads/ClsAdMob.dart';
 import 'package:speakerclener/customclass/CustomDialoge.dart';
 import 'package:speakerclener/customclass/color.dart';
-import 'package:speakerclener/screens/Homescreen.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class BlueThootScreen extends StatefulWidget {
-
   const BlueThootScreen();
 
   @override
   State<BlueThootScreen> createState() => _BlueThootScreenState();
 }
 
-
-class _BlueThootScreenState extends State<BlueThootScreen>
-    with WidgetsBindingObserver {
+class _BlueThootScreenState extends State<BlueThootScreen> with WidgetsBindingObserver {
   // Availability
 
-  List<BluetoothDevice> devicesList =
-      List<BluetoothDevice>.empty(growable: true);
+  // List<BluetoothDevice> devicesList = List<BluetoothDevice>.empty(growable: true);
   bool isDeviceConnected = false;
   bool blucheck = false;
 
@@ -35,14 +30,13 @@ class _BlueThootScreenState extends State<BlueThootScreen>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    checkBT();
+    headsetPlugin.requestPermission();
+    _getConnectedDevices();
   }
-
 
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-
     super.dispose();
   }
 
@@ -51,8 +45,7 @@ class _BlueThootScreenState extends State<BlueThootScreen>
     switch (state) {
       case AppLifecycleState.resumed:
         print("Test==resume");
-        _startDiscovery();
-        setState(() {});
+        _getConnectedDevices();
         break;
       case AppLifecycleState.inactive:
         break;
@@ -66,28 +59,29 @@ class _BlueThootScreenState extends State<BlueThootScreen>
     }
   }
 
-  void _startDiscovery() {
+  Future<void> _getConnectedDevices() async {
+    try {
 
-
-    // Setup a list of the bonded devices
-    FlutterBluetoothSerial.instance
-        .getBondedDevices()
-        .then((List<BluetoothDevice> bondedDevices) {
-
-      devicesList = bondedDevices.where((device) => device.isConnected).toList();
-      print("Test===${devicesList.length}");
-      setState(() {
-
+      /// if headset is plugged
+      headsetPlugin.getCurrentState.then((_val){
+        setState(() {
+          headsetEvent = _val;
+        });
+        print("Test== ${headsetEvent.toString()}");
       });
-    });
+
+    } catch (e) {
+      print('Error retrieving paired devices: $e');
+    }
   }
-bool isCleaningStart=false;
+
+  bool isCleaningStart = false;
+
   @override
   Widget build(BuildContext context) {
-    print("Test==List length ${devicesList.length}");
-    if (devicesList.isEmpty) {
+    if (headsetEvent!=HeadsetState.CONNECT) {
       return WillPopScope(
-        onWillPop: (){
+        onWillPop: () {
           return backButton(context);
         },
         child: Scaffold(
@@ -102,7 +96,9 @@ bool isCleaningStart=false;
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.pop(context);
+                            _getConnectedDevices();
+
+                            // Navigator.pop(context);
                           },
                           child: Align(
                             alignment: Alignment.topLeft,
@@ -119,8 +115,7 @@ bool isCleaningStart=false;
                           ),
                         ),
                         Container(
-                          margin:
-                              EdgeInsets.only(top: 30.h, left: 10.w, right: 10.w),
+                          margin: EdgeInsets.only(top: 30.h, left: 10.w, right: 10.w),
                           child: Text(
                             "Headset Cleaning",
                             textAlign: TextAlign.center,
@@ -135,20 +130,14 @@ bool isCleaningStart=false;
                           height: 0.30.sh,
                           width: 0.30.sh,
                           margin: EdgeInsets.only(top: 10.h),
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage("assets/headphone.png"))),
+                          decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/headphone.png"))),
                         ),
                         Container(
-                          margin:
-                              EdgeInsets.only(top: 10.h, left: 10.w, right: 10.w),
+                          margin: EdgeInsets.only(top: 10.h, left: 10.w, right: 10.w),
                           child: Text(
                             "Please plug in your headphones \n to continue",
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Color(0xff147ADD),
-                                fontSize: 20.sp,
-                                fontFamily: "Poppinsreg"),
+                            style: TextStyle(color: Color(0xff147ADD), fontSize: 20.sp, fontFamily: "Poppinsreg"),
                           ),
                         ),
                         Container(
@@ -156,10 +145,7 @@ bool isCleaningStart=false;
                           child: Text(
                             "If you have a Bluetooth headphone device \n then connect it with your phone",
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Color(0xff147ADD),
-                                fontSize: 15.sp,
-                                fontFamily: "Poppinsreg"),
+                            style: TextStyle(color: Color(0xff147ADD), fontSize: 15.sp, fontFamily: "Poppinsreg"),
                           ),
                         ),
                         Container(
@@ -174,13 +160,8 @@ bool isCleaningStart=false;
                               });
                             },
                             child: Text(
-                              isDeviceConnected
-                                  ? "Connected to a Device"
-                                  : "Connect to a Device",
-                              style: TextStyle(
-                                  color: Color(0xff147ADD),
-                                  fontSize: 24.sp,
-                                  fontFamily: "Poppinsreg"),
+                              isDeviceConnected ? "Connected to a Device" : "Connect to a Device",
+                              style: TextStyle(color: Color(0xff147ADD), fontSize: 24.sp, fontFamily: "Poppinsreg"),
                             ),
                           ),
                         ),
@@ -194,27 +175,13 @@ bool isCleaningStart=false;
           ),
         ),
       );
-    } else{
+    } else {
       return HeadsetCleaning();
     }
   }
+  HeadsetEvent headsetPlugin = new HeadsetEvent();
+  HeadsetState? headsetEvent= HeadsetState.DISCONNECT;
 
-  void checkBT() async {
-
-    // if (_isDiscovering) {
-    //   _startDiscovery();
-    // }
-    FlutterBluetoothSerial.instance.onStateChanged().listen((event) {
-      switch (event) {
-        case BluetoothState.STATE_BLE_ON:
-          _startDiscovery();
-      }
-    });
-
-    if ((await FlutterBluetoothSerial.instance.isAvailable) ?? false) {
-      _startDiscovery();
-    }
-  }
 }
 
 class HeadsetCleaning extends StatefulWidget {
@@ -298,13 +265,7 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                   thicknessUnit: GaugeSizeUnit.factor,
                 ),
                 pointers: <GaugePointer>[
-                  RangePointer(
-                      value: progressValue,
-                      width: 0.10.w,
-                      sizeUnit: GaugeSizeUnit.factor,
-                      enableAnimation: true,
-                      animationDuration: 100,
-                      animationType: AnimationType.linear)
+                  RangePointer(value: progressValue, width: 0.10.w, sizeUnit: GaugeSizeUnit.factor, enableAnimation: true, animationDuration: 100, animationType: AnimationType.linear)
                 ],
                 annotations: <GaugeAnnotation>[
                   GaugeAnnotation(
@@ -313,15 +274,8 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Cleaning",
-                              style: TextStyle(
-                                  color: Color(0xff147ADD),
-                                  fontSize: 20.sp,
-                                  fontFamily: "Poppinsreg")),
-                          Text(progressValue.toStringAsFixed(0) + '%',
-                              style: const TextStyle(
-                                  color: Color(0xff147ADD),
-                                  fontFamily: "Poppins")),
+                          Text("Cleaning", style: TextStyle(color: Color(0xff147ADD), fontSize: 20.sp, fontFamily: "Poppinsreg")),
+                          Text(progressValue.toStringAsFixed(0) + '%', style: const TextStyle(color: Color(0xff147ADD), fontFamily: "Poppins")),
                         ],
                       ),
                     ),
@@ -346,32 +300,22 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                   Container(
                     height: ScreenUtil().setHeight(190),
                     width: ScreenUtil().setWidth(300),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15.5.sp),
-                        color: Colors.white),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(15.5.sp), color: Colors.white),
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(
-                              top: 20.h, left: 30.w, right: 30.w),
+                          padding: EdgeInsets.only(top: 20.h, left: 30.w, right: 30.w),
                           child: Text(
                             "Stop Cleaning?",
-                            style: TextStyle(
-                                fontSize: 22.sp,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 22.sp, color: Colors.black, fontWeight: FontWeight.bold),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(
-                              top: 25.h, left: 10.w, right: 10.w),
+                          padding: EdgeInsets.only(top: 25.h, left: 10.w, right: 10.w),
                           child: Text(
                             "If you stop now, your speaker may not \n be fully clean",
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 15.sp,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 15.sp, color: Colors.grey, fontWeight: FontWeight.bold),
                           ),
                         ),
                         Row(
@@ -382,18 +326,13 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                               width: 0.35.sw,
                               margin: EdgeInsets.only(top: 25.h),
                               child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.grey,
-                                    shape: StadiumBorder()),
+                                style: ElevatedButton.styleFrom(backgroundColor: Colors.grey, shape: StadiumBorder()),
                                 onPressed: () {
                                   Navigator.pop(context);
                                 },
                                 child: Text(
                                   "No",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.sp),
+                                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20.sp),
                                 ),
                               ),
                             ),
@@ -402,27 +341,17 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                               width: 0.35.sw,
                               margin: EdgeInsets.only(top: 25.h),
                               child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: themeColor,
-                                    shape: StadiumBorder()
-                                ),
+                                style: ElevatedButton.styleFrom(backgroundColor: themeColor, shape: StadiumBorder()),
                                 onPressed: () {
                                   setState(() {
                                     stopAudio();
                                     Navigator.of(context).pop();
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                SecoundScreen()));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => SecoundScreen()));
                                   });
                                 },
                                 child: Text(
                                   "Yes",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.sp),
+                                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.sp),
                                 ),
                               ),
                             )
@@ -450,32 +379,22 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                 Container(
                   height: ScreenUtil().setHeight(190),
                   width: ScreenUtil().setWidth(300),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.5.sp),
-                      color: Colors.white),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(15.5.sp), color: Colors.white),
                   child: Column(
                     children: [
                       Padding(
-                        padding:
-                            EdgeInsets.only(top: 20.h, left: 30.w, right: 30.w),
+                        padding: EdgeInsets.only(top: 20.h, left: 30.w, right: 30.w),
                         child: Text(
                           "Cleaning Complete",
-                          style: TextStyle(
-                              fontSize: 22.sp,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
+                          style: TextStyle(fontSize: 22.sp, color: Colors.black, fontWeight: FontWeight.bold),
                         ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsets.only(top: 25.h, left: 10.w, right: 10.w),
+                        padding: EdgeInsets.only(top: 25.h, left: 10.w, right: 10.w),
                         child: Text(
                           "Your headset cleaning is complete",
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 15.sp,
-                              color: Colors.grey,
-                              fontWeight: FontWeight.bold),
+                          style: TextStyle(fontSize: 15.sp, color: Colors.grey, fontWeight: FontWeight.bold),
                         ),
                       ),
                       Row(
@@ -486,10 +405,7 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                             width: 0.35.sw,
                             margin: EdgeInsets.only(top: 25.h),
                             child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: themeColor,
-                                  shape: StadiumBorder()
-                              ),
+                              style: ElevatedButton.styleFrom(backgroundColor: themeColor, shape: StadiumBorder()),
                               onPressed: () {
                                 setState(() {
                                   Navigator.of(context).pop();
@@ -498,10 +414,7 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                               },
                               child: Text(
                                 "OK",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20.sp),
+                                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.sp),
                               ),
                             ),
                           )
@@ -554,28 +467,18 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.only(
-                                top: 20.h, left: 10.w, right: 10.w),
+                            margin: EdgeInsets.only(top: 20.h, left: 10.w, right: 10.w),
                             child: Text(
                               "Headset Cleaning",
                               textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Color(0xff147ADD),
-                                  fontSize: 30.sp,
-                                  fontFamily: "Montserrat"),
+                              style: TextStyle(color: Color(0xff147ADD), fontSize: 30.sp, fontFamily: "Montserrat"),
                             ),
                           ),
-                          Container(
-                              margin: EdgeInsets.only(top: 20.h),
-                              child: getNormalProgressStyle()),
+                          Container(margin: EdgeInsets.only(top: 20.h), child: getNormalProgressStyle()),
                           Container(
                             child: Text(
                               "Please follow these steps carefully.",
-                              style: TextStyle(
-                                  fontSize: 18.sp,
-                                  color: Color(0xff147ADD),
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Poppins"),
+                              style: TextStyle(fontSize: 18.sp, color: Color(0xff147ADD), fontWeight: FontWeight.bold, fontFamily: "Poppins"),
                             ),
                           ),
                           Align(
@@ -584,11 +487,7 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                               margin: EdgeInsets.only(top: 30.h, left: 15.w),
                               child: Text(
                                 ". Turn volume to maximum",
-                                style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 15.sp,
-                                    fontFamily: "Poppins",
-                                    fontWeight: FontWeight.bold),
+                                style: TextStyle(color: Colors.grey, fontSize: 15.sp, fontFamily: "Poppins", fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
@@ -598,11 +497,7 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                               margin: EdgeInsets.only(top: 15.h, left: 15.w),
                               child: Text(
                                 ". Speaker should be facing down",
-                                style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 15.sp,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "Poppins"),
+                                style: TextStyle(color: Colors.grey, fontSize: 15.sp, fontWeight: FontWeight.bold, fontFamily: "Poppins"),
                               ),
                             ),
                           ),
@@ -611,19 +506,13 @@ class _HeadsetCleaningState extends State<HeadsetCleaning> {
                             width: 0.75.sw,
                             margin: EdgeInsets.only(top: 30.h),
                             child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: themeColor,
-                                  shape: StadiumBorder()
-                              ),
+                              style: ElevatedButton.styleFrom(backgroundColor: themeColor, shape: StadiumBorder()),
                               onPressed: () {
                                 showStopDailoge();
                               },
                               child: Text(
                                 "Stop",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20.sp),
+                                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.sp),
                               ),
                             ),
                           )
@@ -679,35 +568,24 @@ class SecoundScreen extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(
-                              top: 20.h, left: 10.w, right: 10.w),
+                          margin: EdgeInsets.only(top: 20.h, left: 10.w, right: 10.w),
                           child: Text(
                             "Auto Cleaning",
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Color(0xff147ADD),
-                                fontSize: 30.sp,
-                                fontFamily: "Montserrat"),
+                            style: TextStyle(color: Color(0xff147ADD), fontSize: 30.sp, fontFamily: "Montserrat"),
                           ),
                         ),
                         Container(
                           height: 0.20.sh,
                           width: 0.20.sh,
                           margin: EdgeInsets.only(top: 30.h),
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage("assets/CORRECT1.png"),
-                                  fit: BoxFit.fill)),
+                          decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/CORRECT1.png"), fit: BoxFit.fill)),
                         ),
                         Container(
                           margin: EdgeInsets.only(top: 30.h),
                           child: Text(
                             "Cleaning is Complate",
-                            style: TextStyle(
-                                color: Color(0xff147ADD),
-                                fontSize: 21.sp,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: "Poppins"),
+                            style: TextStyle(color: Color(0xff147ADD), fontSize: 21.sp, fontWeight: FontWeight.bold, fontFamily: "Poppins"),
                           ),
                         ),
                         Container(
@@ -715,10 +593,7 @@ class SecoundScreen extends StatelessWidget {
                           child: Text(
                             "Is the sound still not working properly? \n Tap the restart button.",
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Color(0xff147ADD),
-                                fontSize: 15.sp,
-                                fontFamily: "Poppinsreg"),
+                            style: TextStyle(color: Color(0xff147ADD), fontSize: 15.sp, fontFamily: "Poppinsreg"),
                           ),
                         ),
                         Container(
@@ -726,27 +601,15 @@ class SecoundScreen extends StatelessWidget {
                           width: 0.85.sw,
                           margin: EdgeInsets.only(top: 30.h),
                           child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: themeColor,
-                                shape: StadiumBorder()
-                            ),
+                            style: ElevatedButton.styleFrom(backgroundColor: themeColor, shape: StadiumBorder()),
                             onPressed: () {
-                              Navigator.pop(
-                                  context); // Pop the current screen (SecoundScreen)
-                              Navigator.pop(
-                                  context); // Pop the previous screen (AutoCleanscreen)
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          AutoCleanscreen())); // Navigate back to AutoCleanscreen
+                              Navigator.pop(context); // Pop the current screen (SecoundScreen)
+                              Navigator.pop(context); // Pop the previous screen (AutoCleanscreen)
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => AutoCleanscreen())); // Navigate back to AutoCleanscreen
                             },
                             child: Text(
                               "Restart",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20.sp),
+                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.sp),
                             ),
                           ),
                         ),
@@ -755,20 +618,14 @@ class SecoundScreen extends StatelessWidget {
                           width: 0.85.sw,
                           margin: EdgeInsets.only(top: 20.h),
                           child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: themeColor,
-                                shape: StadiumBorder()
-                            ),
+                            style: ElevatedButton.styleFrom(backgroundColor: themeColor, shape: StadiumBorder()),
                             onPressed: () {
                               Navigator.pop(context);
                               Navigator.pop(context);
                             },
                             child: Text(
                               "Done",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20.sp),
+                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.sp),
                             ),
                           ),
                         )
