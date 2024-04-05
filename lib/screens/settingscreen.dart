@@ -1,13 +1,21 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:share/share.dart';
+import 'package:speakerclener/Utils/ClsRateDialog.dart';
 import 'package:speakerclener/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 String AppName = "Speaker Cleaner Water eject";
+String privacy = "https://sites.google.com/view/nktechprivacy";
+String share_msg = 'Hey use this wonderful app for learn something new.\n';
+String playStrorUrl = "https://play.google.com/store/apps/details?id=${packageInfo!.packageName}";
+String appStoreUrl = "";
+String playStoreMoreApp = "https://play.google.com/store/apps/developer?id=NK+Tech+Apps";
+String appStoreMoreApp = "";
 
 class Settingscreen extends StatefulWidget {
   const Settingscreen({super.key});
@@ -17,12 +25,7 @@ class Settingscreen extends StatefulWidget {
 }
 
 class _SettingscreenState extends State<Settingscreen> {
-  String privacy = "https://sites.google.com/view/nktechprivacy";
-  String share_msg = 'Hey use this wonderful app for learn something new.\n';
-  String playStrorUrl = "https://play.google.com/store/apps/details?id=${packageInfo!.packageName}";
-  String appStoreUrl = "https://apps.apple.com/us/app/icecream-recipes-in-gujrati/id1249927202";
-  String playStoreMoreApp = "https://play.google.com/store/apps/developer?id=NK+Tech+Apps";
-  String appStoreMoreApp = "https://apps.apple.com/ky/developer/pt-patel/id1259901941";
+
 
   void shareApp() {
     String message = "$share_msg";
@@ -76,116 +79,125 @@ class _SettingscreenState extends State<Settingscreen> {
                           TextStyle(color: Color(0xff147ADD), fontSize: 30.sp, fontFamily: "Montserrat"),
                     ),
                   ),
+                  SizedBox(height: 30.r,),
                   Container(
-                    height: 200.sp,
-                    width: 300.sp,
-                    margin: EdgeInsets.only(right: 20.w, left: 20.w, top: 30.h),
+                    margin: EdgeInsets.all(20.r),
+                    padding: EdgeInsets.all(20.r),
                     decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(25.5.sp)),
+                        color: Colors.grey.withOpacity(0.2), borderRadius: BorderRadius.circular(10.sp)),
                     child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        Container(
-                          padding: EdgeInsets.only(top: 30.h, left: 10.w),
-                          child: GestureDetector(
-                            onTap: () {
-                              launchUrl(Uri.parse(Platform.isIOS ? appStoreMoreApp : playStoreMoreApp));
-                            },
+                        GestureDetector(
+                          onTap: () {
+                            launchUrl(Uri.parse(Platform.isIOS ? appStoreMoreApp : playStoreMoreApp),mode: LaunchMode.externalApplication);
+                          },
+                          child: Container(
+                            color: Colors.transparent,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Expanded(
-                                  child: Container(
-                                    padding: EdgeInsets.only(left: 35.w),
-                                    child: Text(
-                                      "More Apps",
-                                      style: TextStyle(
-                                          fontSize: 20.sp, letterSpacing: 2, color: Color(0xff147ADD)),
-                                    ),
-                                    alignment: Alignment.topLeft,
-                                  ),
+                                Text(
+                                  "More Apps",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 18.sp, letterSpacing: 2, color: Color(0xff147ADD)),
                                 ),
-                                Container(
-                                  padding: EdgeInsets.only(right: 50.w),
-                                  child: Icon(
-                                    Icons.more_horiz_outlined,
-                                    color: Color(0xff147ADD),
-                                    size: 30.sp,
-                                  ),
-                                  alignment: Alignment.topLeft,
+                                Icon(
+                                  Icons.apps_rounded,
+                                  color: Color(0xff147ADD),
+                                  size: 30.sp,
                                 ),
                               ],
                             ),
                           ),
                         ),
-                        Container(
-                          padding: EdgeInsets.only(top: 30.h, left: 10.w),
-                          child: GestureDetector(
-                            onTap: () {
-                              shareApp();
-                            },
+                        Divider(
+                          color: Colors.black.withOpacity(0.15),
+                          height: 25.r,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            shareApp();
+                          },
+                          child: Container(
+                            color: Colors.transparent,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Expanded(
-                                  child: Container(
-                                    padding: EdgeInsets.only(left: 35.w),
-                                    child: Text(
-                                      "Share App",
-                                      style: TextStyle(
-                                          fontSize: 20.sp, letterSpacing: 2, color: Color(0xff147ADD)),
-                                    ),
-                                    alignment: Alignment.topLeft,
-                                  ),
+                                Text(
+                                  "Share App",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 18.sp, letterSpacing: 2, color: Color(0xff147ADD)),
                                 ),
-                                Container(
-                                  padding: EdgeInsets.only(right: 50.w),
-                                  child: Icon(
-                                    Icons.share,
-                                    color: Color(0xff147ADD),
-                                    size: 25.sp,
-                                  ),
-                                  alignment: Alignment.topLeft,
+                                Icon(
+                                  CupertinoIcons.share,
+                                  color: Color(0xff147ADD),
+                                  size: 30.sp,
                                 ),
                               ],
                             ),
                           ),
                         ),
-                        Container(
-                          padding: EdgeInsets.only(top: 30.h, left: 10.w),
-                          child: GestureDetector(
-                            onTap: () {
-                              launchUrlString(
-                                privacy,
-                              );
-                            },
+                        Divider(
+                          color: Colors.black.withOpacity(0.15),
+                          height: 25.r,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            showDialog(context: context, barrierDismissible: true, builder: (context) => ClsRateDialog());
+                          },
+                          child: Container(
+                            color: Colors.transparent,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Expanded(
-                                  child: Container(
-                                    padding: EdgeInsets.only(left: 35.w),
-                                    child: Text(
-                                      "Privacy Policy",
-                                      style: TextStyle(
-                                          fontSize: 20.sp, letterSpacing: 2, color: Color(0xff147ADD)),
-                                    ),
-                                    alignment: Alignment.topLeft,
-                                  ),
+                                Text(
+                                  "Rate App",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 18.sp, letterSpacing: 2, color: Color(0xff147ADD)),
                                 ),
-                                Container(
-                                  padding: EdgeInsets.only(right: 50.w),
-                                  child: Icon(
-                                    Icons.privacy_tip,
-                                    color: Color(0xff147ADD),
-                                    size: 25.sp,
-                                  ),
-                                  alignment: Alignment.topLeft,
+                                Icon(
+                                  CupertinoIcons.star_circle_fill,
+                                  color: Color(0xff147ADD),
+                                  size: 30.sp,
                                 ),
                               ],
                             ),
                           ),
-                        )
+                        ),
+                        Divider(
+                          color: Colors.black.withOpacity(0.15),
+                          height: 25.r,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            launchUrlString(
+                              privacy,
+                            );
+                          },
+                          child: Container(
+                            color: Colors.transparent,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Privacy Policy",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 18.sp, letterSpacing: 2, color: Color(0xff147ADD)),
+                                ),
+                                Icon(
+                                  Icons.policy_rounded,
+                                  color: Color(0xff147ADD),
+                                  size: 30.sp,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),

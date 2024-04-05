@@ -47,6 +47,10 @@ class _SoundScreenState extends State<SoundScreen> {
   Future<void> _playAudio(int index) async {
     if (_selectedIndex == index) {
       if (_audioPlayer.playing) {
+        _selectedIndex = null;
+        setState(() {
+
+        });
         await _audioPlayer.pause();
       } else {
         await _audioPlayer.play();
@@ -67,7 +71,7 @@ class _SoundScreenState extends State<SoundScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop:(){
+      onWillPop: () {
         return backButton(context);
       },
       child: Scaffold(
@@ -85,7 +89,7 @@ class _SoundScreenState extends State<SoundScreen> {
                           Align(
                             alignment: Alignment.topLeft,
                             child: GestureDetector(
-                              onTap: (){
+                              onTap: () {
                                 backButton(context);
                               },
                               child: Container(
@@ -100,34 +104,35 @@ class _SoundScreenState extends State<SoundScreen> {
                               ),
                             ),
                           ),
-
                           Container(
                             margin: EdgeInsets.only(top: 20.h, left: 10.w, right: 10.w),
                             child: Text(
-                                "Sound Cleaning",
+                              "Sound Cleaning",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  color: Color(0xff147ADD),
-                                  fontSize: 30.sp,
-                                  fontFamily: "Montserrat"
-                              ),
+                                  color: Color(0xff147ADD), fontSize: 30.sp, fontFamily: "Montserrat"),
                             ),
                           ),
-
                           Expanded(
                             child: Padding(
-                              padding:  EdgeInsets.only(top: 10.h, left: 30.w, right: 30.w),
+                              padding: EdgeInsets.only(top: 10.h, left: 30.w, right: 30.w),
                               child: ListView.builder(
                                 itemCount: audioList.length,
                                 itemBuilder: (context, index) {
                                   return ListTile(
-                                    title: Text('Audio ${index + 1}', style: TextStyle(
-                                      color: Color(0xff147ADD),
-                                      fontSize: 18.sp,
-                                      fontFamily: "Poppinsreg"
-                                    ),),
+                                    title: Text(
+                                      'Audio ${index + 1}',
+                                      style: TextStyle(
+                                          color: Color(0xff147ADD),
+                                          fontSize: 18.sp,
+                                          fontFamily: "Poppinsreg"),
+                                    ),
                                     trailing: IconButton(
-                                      icon: Icon(_getIcon(index), size: 25.sp,  color: Color(0xff147ADD), ),
+                                      icon: Icon(
+                                        _getIcon(index),
+                                        size: 25.sp,
+                                        color: Color(0xff147ADD),
+                                      ),
                                       onPressed: () => _playAudio(index),
                                     ),
                                   );

@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                                       margin: EdgeInsets.only(top: 10.h, left: 15.w),
                                       child: Text("Speaker Cleaner Water eject", style: TextStyle(
                                         fontFamily: "Montserrat",
-                                        fontSize: 25.sp,
+                                        fontSize: 15.sp,
                                         color: themeColor
                                       ),),
                                     ),
@@ -211,7 +211,7 @@ class _HomePageState extends State<HomePage> {
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       fontFamily: "Poppins",
-                                                      fontSize: 15.sp,
+                                                      fontSize: 12.sp,
                                                       color: Color(0xff147ADD)
                                                        ),
                                                     ),
@@ -248,7 +248,7 @@ class _HomePageState extends State<HomePage> {
                                                       textAlign: TextAlign.center,
                                                       style: TextStyle(
                                                           fontFamily: "Poppins",
-                                                          fontSize: 15.sp,
+                                                          fontSize: 12.sp,
                                                           color: Color(0xff147ADD)
                                                       ),
 
@@ -290,7 +290,7 @@ class _HomePageState extends State<HomePage> {
                                                       textAlign: TextAlign.center,
                                                       style: TextStyle(
                                                           fontFamily: "Poppins",
-                                                          fontSize: 15.sp,
+                                                          fontSize: 12.sp,
                                                           color: Color(0xff147ADD)
                                                       ),
                                                     ),
@@ -327,7 +327,7 @@ class _HomePageState extends State<HomePage> {
                                                       textAlign: TextAlign.center,
                                                       style: TextStyle(
                                                           fontFamily: "Poppins",
-                                                          fontSize: 15.sp,
+                                                          fontSize: 12.sp,
                                                           color: Color(0xff147ADD)
                                                       ),
 
@@ -368,7 +368,7 @@ class _HomePageState extends State<HomePage> {
                                                       textAlign: TextAlign.center,
                                                       style: TextStyle(
                                                           fontFamily: "Poppins",
-                                                          fontSize: 15.sp,
+                                                          fontSize: 12.sp,
                                                           color: Color(0xff147ADD)
                                                       ),
                                                     ),
@@ -405,7 +405,7 @@ class _HomePageState extends State<HomePage> {
                                                       textAlign: TextAlign.center,
                                                       style: TextStyle(
                                                           fontFamily: "Poppins",
-                                                          fontSize: 15.sp,
+                                                          fontSize: 12.sp,
                                                           color: Color(0xff147ADD)
                                                       ),
                                                     ),

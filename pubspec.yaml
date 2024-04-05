@@ -47,6 +47,7 @@ dependencies:
   share: ^2.0.4
   vibration: ^1.8.4
   http:
+  flutter_rating_bar: ^4.0.1
 #  flutter_blue: ^0.8.0
   sleek_circular_slider: ^2.0.1
   get_storage: ^2.1.1

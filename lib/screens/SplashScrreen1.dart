@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:http/http.dart' as http;
 import 'package:speakerclener/ads/AdModel.dart';
 import 'package:speakerclener/ads/AppLifecycleReactor.dart';
 import 'package:speakerclener/ads/AppOpenAdManager.dart';
@@ -14,9 +15,8 @@ import 'package:speakerclener/ads/ClsAdMob.dart';
 import 'package:speakerclener/ads/FirebaseLog.dart';
 import 'package:speakerclener/customclass/key.dart';
 import 'package:speakerclener/main.dart';
-import 'package:speakerclener/screens/Homescreen.dart';
 import 'package:speakerclener/screens/GetStartScreen.dart';
-import 'package:http/http.dart' as http;
+import 'package:speakerclener/screens/Homescreen.dart';
 
 class SplashScreen1 extends StatefulWidget {
   const SplashScreen1({super.key});
@@ -62,7 +62,8 @@ class _SplashScreen1State extends State<SplashScreen1> {
       return;
     }
 
-    ConsentDebugSettings debugSettings = ConsentDebugSettings(debugGeography: DebugGeography.debugGeographyEea, testIdentifiers: deviceList);
+    ConsentDebugSettings debugSettings = ConsentDebugSettings(
+        debugGeography: DebugGeography.debugGeographyEea, testIdentifiers: deviceList);
 
     ConsentRequestParameters params = ConsentRequestParameters(consentDebugSettings: debugSettings);
 
@@ -101,7 +102,8 @@ class _SplashScreen1State extends State<SplashScreen1> {
 
     await Future.wait<dynamic>(futureList);
 
-    if (myAdModel.adSplash == '1' && DateTime.now().compareTo(DateTime(2023, 10, 05).add(Duration(days: 5))) > 0) {
+    if (myAdModel.adSplash == '1' &&
+        DateTime.now().compareTo(DateTime(2023, 10, 05).add(Duration(days: 5))) > 0) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -189,17 +191,19 @@ class _SplashScreen1State extends State<SplashScreen1> {
                 //crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(bottom: 50.h),
+                    margin: EdgeInsets.only(bottom: 10.h),
                     child: Image.asset(
                       "assets/applogo.png",
                       height: 0.30.sh,
                       width: 0.30.sh,
                     ),
                   ),
-                  Container(
+                  Center(
                     child: Text(
-                      "Speaker Cleaner Water eject",
-                      style: TextStyle(fontSize: 25.sp, color: const Color(0xff147ADD), fontFamily: "Poppins"),
+                      "Speaker Cleaner\nWater eject",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 20.sp, color: const Color(0xff147ADD), fontFamily: "Poppins"),
                     ),
                   ),
                 ],

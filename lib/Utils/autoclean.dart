@@ -148,9 +148,9 @@ class _AutoCleanscreenState extends State<AutoCleanscreen> {
 
                   Padding(
                     padding:
-                    EdgeInsets.only(top: 25.h, left: 10.w, right: 10.w),
+                    EdgeInsets.only(top: 15.h, left: 10.w, right: 10.w),
                     child: Text(
-                      "If you stop now, your speaker may not \n be fully clean",
+                      "If you stop now, your speaker may not be fully clean",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 15.sp,
@@ -158,14 +158,13 @@ class _AutoCleanscreenState extends State<AutoCleanscreen> {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-
+SizedBox(height: 15.r,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
-                        height: 45.h,
+                        height: 40.h,
                         width: 0.35.sw,
-                        margin: EdgeInsets.only(top: 25.h),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.grey,
@@ -175,15 +174,14 @@ class _AutoCleanscreenState extends State<AutoCleanscreen> {
                             Navigator.pop(context);
                           },
                           child: Text("No",style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20.sp
+                              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16.sp
                           ),),
                         ),
                       ),
 
                       Container(
-                        height: 45.h,
+                        height: 40.h,
                         width: 0.35.sw,
-                        margin: EdgeInsets.only(top: 25.h),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               backgroundColor: themeColor,
@@ -197,7 +195,7 @@ class _AutoCleanscreenState extends State<AutoCleanscreen> {
                             });
                           },
                           child: Text("Yes",style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.sp
+                              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16.sp
                           ),),
                         ),
                       )
