@@ -198,7 +198,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
                   ),
                   Container(
                     child: Text(
-                      "Speaker Cleaner",
+                      "Speaker Cleaner Water eject",
                       style: TextStyle(fontSize: 25.sp, color: const Color(0xff147ADD), fontFamily: "Poppins"),
                     ),
                   ),

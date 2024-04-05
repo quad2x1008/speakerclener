@@ -40,7 +40,7 @@ class _ExitScreenState extends State<ExitScreen> {
                       Padding(
                         padding: EdgeInsets.only(top: 40.h, left: 8.w),
                         child: Text(
-                          "SPEAKER CLEANER",
+                          "Speaker Cleaner Water eject",
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 20.sp,

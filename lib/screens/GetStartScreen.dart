@@ -79,7 +79,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
                   Container(
                     margin: EdgeInsets.only(top: 20.h),
                     child: Text(
-                      "Speaker Cleaner", style: TextStyle(
+                      "Speaker Cleaner Water eject", style: TextStyle(
                       fontSize: 32.sp,
                       color: Color(0xff147ADD),
                       fontFamily: "Montserrat"
@@ -193,7 +193,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                   Container(
                     margin: EdgeInsets.only(top: 10.h),
                     child: Text(
-                      "Speaker Cleaner", style: TextStyle(
+                      "Speaker Cleaner Water eject", style: TextStyle(
                         fontSize: 32.sp,
                         color: Color(0xff147ADD),
                         fontFamily: "Montserrat"

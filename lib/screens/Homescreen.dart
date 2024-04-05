@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                                   children: [
                                     Container(
                                       margin: EdgeInsets.only(top: 10.h, left: 15.w),
-                                      child: Text("Speaker Cleaner", style: TextStyle(
+                                      child: Text("Speaker Cleaner Water eject", style: TextStyle(
                                         fontFamily: "Montserrat",
                                         fontSize: 25.sp,
                                         color: themeColor

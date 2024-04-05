@@ -1,5 +1,5 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:speakerclener/customclass/comman.dart';
+import 'package:speakerclener/screens/settingscreen.dart';
 
 /// Create By Parth 16/03/23
 class FirebaseLog {

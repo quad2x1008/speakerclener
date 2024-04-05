@@ -1,13 +1,12 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:speakerclener/ads/BannerAds.dart';
 import 'package:speakerclener/ads/ClsAdMob.dart';
 import 'package:speakerclener/customclass/CustomDialoge.dart';
 import 'package:speakerclener/customclass/color.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
-import 'package:vibration/vibration.dart';
 
 class AutoCleanscreen extends StatefulWidget {
   const AutoCleanscreen({Key? key}) : super(key: key);

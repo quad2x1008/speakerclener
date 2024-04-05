@@ -13,7 +13,7 @@ PackageInfo? packageInfo;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init("session");
-
+  packageInfo = await PackageInfo.fromPlatform();
   MobileAds.instance.initialize();
   MobileAds.instance.updateRequestConfiguration(RequestConfiguration(testDeviceIds: deviceList));
 

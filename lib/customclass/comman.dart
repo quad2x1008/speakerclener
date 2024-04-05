@@ -1,1 +1,0 @@
-String AppName = "Speaker Cleaner";

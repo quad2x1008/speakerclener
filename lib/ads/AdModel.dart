@@ -1,12 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:flutter/services.dart';
-import 'package:speakerclener/ads/AppOpenAdManager.dart';
-
-import 'AppLifecycleReactor.dart';
-import 'ClsAdMob.dart';
-
 class AdModel {
   String? platform;
   String? packageName;

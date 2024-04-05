@@ -1,22 +1,32 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!-- Add these permissions -->
 <!--    <uses-permission android:name="android.permission.BLUETOOTH"/>-->
 <!--    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>-->
 <!--    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>-->
 <!--    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>-->
-
 <!--    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>-->
 <!--    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>-->
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.VIBRATE"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
+    </queries>
     <application
-        android:label="Speaker Cleaner Water eject"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon">
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Speaker Cleaner Water eject"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -55,7 +65,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="ca-app-pub-7400206081244674~3703622815" />
 
     </application>
 </manifest>
