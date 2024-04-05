@@ -1,0 +1,387 @@
+{
+  "project_info": {
+    "project_number": "30896047951",
+    "project_id": "nk-tech-apps",
+    "storage_bucket": "nk-tech-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30896047951:android:34c36cb1f893461fd7673a",
+        "android_client_info": {
+          "package_name": "com.healthtrack.bmi.monitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyB_Fzl2qGkhvqK65wf9K1LFs980u8Ink"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30896047951:android:3c9eb064ad273e5fd7673a",
+        "android_client_info": {
+          "package_name": "com.healthtrack.calculator.healthmaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyB_Fzl2qGkhvqK65wf9K1LFs980u8Ink"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30896047951:android:b0e63771edd001ddd7673a",
+        "android_client_info": {
+          "package_name": "com.healthtrack.drinksmart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyB_Fzl2qGkhvqK65wf9K1LFs980u8Ink"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30896047951:android:5ac968bdff5cf964d7673a",
+        "android_client_info": {
+          "package_name": "com.healthtrack.intense.massager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyB_Fzl2qGkhvqK65wf9K1LFs980u8Ink"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30896047951:android:f5713bdaa9dec5d6d7673a",
+        "android_client_info": {
+          "package_name": "com.nktech.airhornsoundprank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyB_Fzl2qGkhvqK65wf9K1LFs980u8Ink"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30896047951:android:868bec97a9a6a87ed7673a",
+        "android_client_info": {
+          "package_name": "com.nktech.blackjack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyB_Fzl2qGkhvqK65wf9K1LFs980u8Ink"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30896047951:android:080902757e0928acd7673a",
+        "android_client_info": {
+          "package_name": "com.nktech.emojiexpression"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyB_Fzl2qGkhvqK65wf9K1LFs980u8Ink"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30896047951:android:e019e0086a4f7008d7673a",
+        "android_client_info": {
+          "package_name": "com.nktech.gunsimulator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyB_Fzl2qGkhvqK65wf9K1LFs980u8Ink"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30896047951:android:ce04d89b744be987d7673a",
+        "android_client_info": {
+          "package_name": "com.nktech.raulettecasino"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyB_Fzl2qGkhvqK65wf9K1LFs980u8Ink"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30896047951:android:aeb0de102720541bd7673a",
+        "android_client_info": {
+          "package_name": "com.nktech.slots777"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyB_Fzl2qGkhvqK65wf9K1LFs980u8Ink"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30896047951:android:aa9e8f2f66716d2ad7673a",
+        "android_client_info": {
+          "package_name": "com.nktech.unocardparty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyB_Fzl2qGkhvqK65wf9K1LFs980u8Ink"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30896047951:android:be5d6e100a9567e2d7673a",
+        "android_client_info": {
+          "package_name": "com.simulator.fansound"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyB_Fzl2qGkhvqK65wf9K1LFs980u8Ink"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30896047951:android:91c3f3f32fb5db6dd7673a",
+        "android_client_info": {
+          "package_name": "com.simulator.speakerclean"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyB_Fzl2qGkhvqK65wf9K1LFs980u8Ink"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30896047951-ma8866b7ss0b9hkja31rvc13jms4df2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
